@@ -2,6 +2,8 @@ package ru.job4j.puzzle;
 
 import ru.job4j.puzzle.firuges.Cell;
 import ru.job4j.puzzle.firuges.Figure;
+//import ru.job4j.
+
 
 import java.util.Arrays;
 
@@ -71,6 +73,12 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
+        for (int i = 0; i < table.length; i++) {
+            if (table[i][i] == 1  &&  (MatrixCheck.monoHorizontal(table, i) || MatrixCheck.monoVertical(table, i))) {
+                result = true;
+                break;
+            }
+        }
         return result;
     }
 
